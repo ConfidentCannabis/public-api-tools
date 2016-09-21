@@ -1,0 +1,32 @@
+{
+  "name": "cc-public-api-tools",
+  "version": "0.1.0",
+  "description": "Tools for using the Confident Cannabis API",
+  "main": "index.js",
+  "dependencies": {
+    "crypto-js": "^3.1.6"
+  },
+  "devDependencies": {
+    "mocha": "^3.0.2"
+  },
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/confidentcannabis/public-api-tools.git"
+  },
+  "keywords": [
+    "confident",
+    "cannabis",
+    "api",
+    "request",
+    "signing"
+  ],
+  "author": "The Confident Cannabis Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/confidentcannabis/public-api-tools/issues"
+  },
+  "homepage": "https://github.com/confidentcannabis/public-api-tools#readme"
+}
