@@ -6,7 +6,7 @@ import hmac
 import logging
 import urllib
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.WARN)
 
 
 def generate_signature(
@@ -113,7 +113,6 @@ def generate_signature(
     # 7. create url encoded param string '{{key}}={{value}}&...'
     #     for ordered data fields
     param_string = unicode_safe_urlencode(params)
-    print param_string
 
     # 8. percent-encode (see notes below about URI Encoding) the base string
     #     from step 1
