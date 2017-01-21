@@ -150,7 +150,7 @@ class ConfidentCannabis(object):
         )
         return result['sample']
 
-    def submit_test_results(self, sample_id, results_dict):
+    def submit_test_results(self, sample_id, results_dict, email_addresses=[]):
         """
         Submit test results for the given sample.
         Requires a results_dict in the format matching the api - please
@@ -158,7 +158,10 @@ class ConfidentCannabis(object):
         """
         return self.post(
             cc_urls['sample_test_results'].format(sample_id=sample_id),
-            {'test_results': json.dumps(results_dict)}
+            {
+                'test_results': json.dumps(results_dict),
+                'email_addresses': json.dumps(email_addresses)
+            }
         )
 
     def upload_sample_coa(self, sample_id, filepath):

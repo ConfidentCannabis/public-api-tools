@@ -1,4 +1,5 @@
 from confidentcannabis import ConfidentCannabis
+import datetime
 
 if __name__ == '__main__':
     api_key = 'PUT-YOUR-API-KEY-HERE'
@@ -7,8 +8,8 @@ if __name__ == '__main__':
     cc = ConfidentCannabis(api_key, api_secret, api_stage='sandbox')
 
     client_id = 1
-    order_id = '1610LAB0001'
-    sample_id = '1610LAB0001.0001'
+    order_id = '1701CC10005'
+    sample_id = '1701CC10005.0006'
     upload_file_path = 'path/to/a/file'
     sample_coa_path = 'path/to/a/pdf'
     sample_image_path = 'path/to/an/image'
@@ -23,7 +24,8 @@ if __name__ == '__main__':
                     'footnote': 'Only the highest quality methods',
                     'signatory_name': 'John Hancock',
                     'signatory_title': 'Lab Director',
-                    'unit_description': 'Flower'
+                    'unit_description': 'Flower',
+                    'date_tested': str(datetime.datetime.now())
                 },
                 'compounds': [
                     {
@@ -49,7 +51,8 @@ if __name__ == '__main__':
                     'report_units': 'ppb',
                     'footnote': 'Checked for pesticides',
                     'signatory_name': 'John Hancock',
-                    'signatory_title': 'Lab Director'
+                    'signatory_title': 'Lab Director',
+                    'date_tested': str(datetime.datetime.now())
                 },
                 'compounds': [
                     {
@@ -74,6 +77,8 @@ if __name__ == '__main__':
             }
         }
     }
+
+    email_addresses = ['client2owner@example.com', 'client2admin@example.com', 'outsider@example.com']
 
     # ------
     # CLIENTS
