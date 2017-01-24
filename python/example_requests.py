@@ -8,8 +8,8 @@ if __name__ == '__main__':
     cc = ConfidentCannabis(api_key, api_secret, api_stage='sandbox')
 
     client_id = 1
-    order_id = '1701CC10005'
-    sample_id = '1701CC10005.0006'
+    order_id = '1610LAB0001'
+    sample_id = '1610LAB0001.0001'
     upload_file_path = 'path/to/a/file'
     sample_coa_path = 'path/to/a/pdf'
     sample_image_path = 'path/to/an/image'
