@@ -8,6 +8,7 @@ cc_urls = {
     'clients': 'clients',
     'client_details': 'client/{client_id}',
 
+    'order': 'order',
     'orders': 'orders',
     'order_details': 'order/{order_id}',
     'order_document': 'order/{order_id}/document',

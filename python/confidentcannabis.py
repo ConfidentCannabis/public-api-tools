@@ -161,6 +161,18 @@ class ConfidentCannabis(object):
             {'test_results': json.dumps(results_dict)}
         )
 
+    def create_order(self, order):
+        """
+        Create a new order.
+        Requires an 'order' in the format matching the api. This payload can be
+        large and has many fields -- please check the documentation to
+        ensure this is up to date.
+
+        # TODO: validate fields in a helpful way - either optionally here or
+        # as a helper
+        """
+        return self.post(cc_urls['order'], {'order': json.dumps(order)})
+
     def upload_sample_coa(self, sample_id, filepath):
         """
         Upload a pdf and attach it to the given sample as the
