@@ -1,3 +1,4 @@
+import datetime
 from confidentcannabis import ConfidentCannabis
 
 if __name__ == '__main__':
@@ -23,7 +24,8 @@ if __name__ == '__main__':
                     'footnote': 'Only the highest quality methods',
                     'signatory_name': 'John Hancock',
                     'signatory_title': 'Lab Director',
-                    'unit_description': 'Flower'
+                    'unit_description': 'Flower',
+                    'date_tested': str(datetime.datetime.now())
                 },
                 'compounds': [
                     {
@@ -49,7 +51,8 @@ if __name__ == '__main__':
                     'report_units': 'ppb',
                     'footnote': 'Checked for pesticides',
                     'signatory_name': 'John Hancock',
-                    'signatory_title': 'Lab Director'
+                    'signatory_title': 'Lab Director',
+                    'date_tested': str(datetime.datetime.now())
                 },
                 'compounds': [
                     {
