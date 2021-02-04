@@ -20,7 +20,7 @@ from the root of the JS directory by calling:
 
 Javascript:
 ```js
-var generateSignature = require('.signing').generateSignature;
+var generateSignature = require('./signing').generateSignature;
 
 method = 'GET'
 route = '/api/v0/signingtest/'
