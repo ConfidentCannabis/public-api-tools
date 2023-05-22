@@ -25,7 +25,7 @@ from .signing import generate_signature
 
 method = 'GET'
 route = '/api/v0/signingtest/'
-headers = {'X-CC-Timestamp': '1474507118.77095'}
+headers = {'X-ConfidentCannabis-Timestamp': '1474507118.77095'}
 data = {'foo': 1, 'bar': 2}
 api_key = '88b750a8-d414-4aee-b26c-2cc7e85434dd'
 api_secret = '043bca27-c4d1-4d39-86d6-e5f0c3b4bb4f'
@@ -44,7 +44,7 @@ var generateSignature = require('.signing').generateSignature;
 
 method = 'GET'
 route = '/api/v0/signingtest/'
-headers = {'X-CC-Timestamp': '1474507118.77095'}
+headers = {'X-ConfidentCannabis-Timestamp': '1474507118.77095'}
 data = {'foo': 1, 'bar': 2}
 api_key = '88b750a8-d414-4aee-b26c-2cc7e85434dd'
 api_secret = '043bca27-c4d1-4d39-86d6-e5f0c3b4bb4f'
