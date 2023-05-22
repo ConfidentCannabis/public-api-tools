@@ -33,7 +33,7 @@ api_secret = '043bca27-c4d1-4d39-86d6-e5f0c3b4bb4f'
 signature = generate_signature(method, route, headers, data, api_key, api_secret)
 print(signature)
 
->>> 'CC0-HMAC-SHA256:x-cc-timestamp:f4f830ac634dee9a9c98bfe71427d4b7e78ffd0356ee305958bc3687d40ffa43'  # NOQA
+>>> 'CC0-HMAC-SHA256:x-confidentcannabis-timestamp:f4f830ac634dee9a9c98bfe71427d4b7e78ffd0356ee305958bc3687d40ffa43'  # NOQA
 ```
 
 Javascript:
@@ -52,7 +52,7 @@ api_secret = '043bca27-c4d1-4d39-86d6-e5f0c3b4bb4f'
 var signature = generateSignature(method, route, headers, data, apiKey, apiSecret);
 console.log(signature);
 
-> 'CC0-HMAC-SHA256:x-cc-timestamp:f4f830ac634dee9a9c98bfe71427d4b7e78ffd0356ee305958bc3687d40ffa43'
+> 'CC0-HMAC-SHA256:x-confidentcannabis-timestamp:f4f830ac634dee9a9c98bfe71427d4b7e78ffd0356ee305958bc3687d40ffa43'
 ```
 
 
