@@ -1,7 +1,7 @@
 {
   "name": "cc-public-api-tools",
   "version": "0.1.0",
-  "description": "Tools for using the Confident Cannabis API",
+  "description": "Tools for using the Confident LIMS API",
   "main": "index.js",
   "dependencies": {
     "crypto-js": "^3.1.6"
@@ -23,7 +23,7 @@
     "request",
     "signing"
   ],
-  "author": "The Confident Cannabis Team",
+  "author": "The Confident LIMS Team",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/confidentcannabis/public-api-tools/issues"

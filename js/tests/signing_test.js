@@ -4,18 +4,18 @@ var specialEncodeComponent = require('../signing').specialEncodeComponent;
 
 var method = 'GET';
 var route = '/api/v0/signingtest/';
-var headers = {'X-ConfidentCannabis-Timestamp': '1474507118.77095'}
+var headers = {'X-ConfidentLims-Timestamp': '1474507118.77095'}
 var data = {foo: 1, bar: 2};
 var apiKey = '88b750a8-d414-4aee-b26c-2cc7e85434dd';
 var apiSecret = '043bca27-c4d1-4d39-86d6-e5f0c3b4bb4f';
-var expectedSignature = 'CC0-HMAC-SHA256:x-confidentcannabis-timestamp:1fdc8a407c5d1c31df2334fbc49984062a4071077a9dc7cfff4de934902c01b8';
+var expectedSignature = 'CC0-HMAC-SHA256:x-confidentlims-timestamp:1fdc8a407c5d1c31df2334fbc49984062a4071077a9dc7cfff4de934902c01b8';
 
 var escapeData = {'escapeme': "!'()*+~ "};
 var escapedEncoded = '%21%27%28%29%2A%2B%7E+';
-var expectedEscapeSignature = 'CC0-HMAC-SHA256:x-confidentcannabis-timestamp:7983502f22d3b7a378f5f706184854b0aa554988419672bfea1cfd28bb3f9ffa';
+var expectedEscapeSignature = 'CC0-HMAC-SHA256:x-confidentlims-timestamp:7983502f22d3b7a378f5f706184854b0aa554988419672bfea1cfd28bb3f9ffa';
 
 var unicodeData = {'foo': 1, '☃': '☃'};
-var expectedUnicodeSignature = 'CC0-HMAC-SHA256:x-confidentcannabis-timestamp:e289a22b9315d8652f6b92f26057f2f018f76414348844a41043d1dbd64def47';
+var expectedUnicodeSignature = 'CC0-HMAC-SHA256:x-confidentlims-timestamp:e289a22b9315d8652f6b92f26057f2f018f76414348844a41043d1dbd64def47';
 
 
 describe('signing', function() {

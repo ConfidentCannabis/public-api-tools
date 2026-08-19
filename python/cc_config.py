@@ -21,8 +21,8 @@ cc_urls = {
 }
 
 cc_stages = {
-    'sandbox': 'https://sandbox-api.confidentcannabis.com/',
-    'production': 'https://api.confidentcannabis.com/'
+    'sandbox': 'https://sandbox-api.confidentlims.com/',
+    'production': 'https://api.confidentlims.com/'
 }
 
 
