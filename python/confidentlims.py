@@ -7,9 +7,9 @@ from cc_config import cc_urls
 
 
 @attr.s
-class ConfidentCannabis(object):
+class ConfidentLims(object):
     """
-    Simple interface to the Confident Cannabis Lab API. Please see
+    Simple interface to the Confident LIMS Lab API. Please see
     the full API documentation for details.
 
     Quick Summary:
@@ -21,7 +21,7 @@ class ConfidentCannabis(object):
     - basic examples are at the bottom of this file
 
     Example:
-        cc = ConfidentCannabis(
+        cc = ConfidentLims(
             api_key='FILLTHISOUT',
             api_secret='FILLTHISOUT',
             api_stage='production'
