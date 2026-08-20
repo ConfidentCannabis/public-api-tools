@@ -7,7 +7,7 @@ var CryptoJS = require('crypto-js');
 
 var method = 'GET';
 var route = '/api/v0/signingtest/';
-var headers = {'X-ConfidentLims-Timestamp': '1474507118.77095'};
+var headers = {'X-ConfidentCannabis-Timestamp': '1474507118.77095'};
 var data = {'foo': 1, 'bar': 2};
 var apiKey = '88b750a8-d414-4aee-b26c-2cc7e85434dd';
 var apiSecret = '043bca27-c4d1-4d39-86d6-e5f0c3b4bb4f';
@@ -17,7 +17,7 @@ var baseString = method.toUpperCase() + route;
 console.log('baseString:', baseString);
 
 // 2
-var headers = {'X-ConfidentLims-Timestamp': '1474507118.77095'};
+var headers = {'X-ConfidentCannabis-Timestamp': '1474507118.77095'};
 var sortedHeaderKeys = Object.keys(headers).sort();
 var sortedHeaders = sortedHeaderKeys.map(function(headerKey) {
   return [headerKey.toLowerCase(), ('' + headers[headerKey]).toLowerCase()];
@@ -102,7 +102,7 @@ console.log('final signature:', signature);
 
 
 // confirm it matches the expected signature from the docs
-var expected = 'CC0-HMAC-SHA256:x-confidentlims-timestamp:1fdc8a407c5d1c31df2334fbc49984062a4071077a9dc7cfff4de934902c01b8';
+var expected = 'CC0-HMAC-SHA256:x-confidentcannabis-timestamp:1fdc8a407c5d1c31df2334fbc49984062a4071077a9dc7cfff4de934902c01b8';
 if (expected === signature) {
   console.log('Yay! Signatures Match!');
 } else {

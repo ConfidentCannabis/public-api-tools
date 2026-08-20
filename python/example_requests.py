@@ -1,11 +1,11 @@
 import datetime
-from confidentlims import ConfidentLims
+from confidentcannabis import ConfidentCannabis
 
 if __name__ == '__main__':
     api_key = 'PUT-YOUR-API-KEY-HERE'
     api_secret = 'PUT-YOUR-API-SECRET-HERE'
 
-    cc = ConfidentLims(api_key, api_secret, api_stage='sandbox')
+    cc = ConfidentCannabis(api_key, api_secret, api_stage='sandbox')
 
     client_id = 1
     order_id = '1610LAB0001'

@@ -22,7 +22,7 @@ function generateSignature(method, route, headers, data, apiKey, apiSecret) {
       return [headerKey.toLowerCase(), ('' + headers[headerKey]).toLowerCase()];
     }).sort();
     // console.log('sortedHeaders:', sortedHeaders);
-    // > sortedHeaders: [ [ 'x-confidentlims-timestamp', '1474507118.77095' ] ]
+    // > sortedHeaders: [ [ 'x-confidentcannabis-timestamp', '1474507118.77095' ] ]
 
     // 3. create url encoded param string '{{key}}={{value}}&...'
     //     for ordered header fields, lowercased
@@ -32,7 +32,7 @@ function generateSignature(method, route, headers, data, apiKey, apiSecret) {
       return prev;
     }, []).join('&');
     // console.log('headerString:', headerString);
-    // > headerString: x-confidentlims-timestamp=1474507118.77095
+    // > headerString: x-confidentcannabis-timestamp=1474507118.77095
 
     // 4. create semi-colon separated list of lowercase
     //     header keys that have been signed eg: x-cc-timestamp;host
@@ -40,7 +40,7 @@ function generateSignature(method, route, headers, data, apiKey, apiSecret) {
       return headerKey.toLowerCase();
     }).join(';');
     // console.log('headerListString:', headerListString);
-    // > headerListString: x-confidentlims-timestamp
+    // > headerListString: x-confidentcannabis-timestamp
 
     // 5. create sorted list of (key, value) pairs from data
     var sortedKeys = Object.keys(data).sort();
@@ -84,7 +84,7 @@ function generateSignature(method, route, headers, data, apiKey, apiSecret) {
       paramString
     ].join('&');
     // console.log('signingString: ' + signingString);
-    // > signingString: GET%2Fapi%2Fv0%2Fsigningtest%2F&x-confidentlims-timestamp=1474507118.77095&bar=2&foo=1&api_key=88b750a8-d414-4aee-b26c-2cc7e85434dd
+    // > signingString: GET%2Fapi%2Fv0%2Fsigningtest%2F&x-confidentcannabis-timestamp=1474507118.77095&bar=2&foo=1&api_key=88b750a8-d414-4aee-b26c-2cc7e85434dd
 
     // 10. create sha256 hmac signature from string using apiSecret
     var rawSignature = '' + CryptoJS.HmacSHA256(signingString, apiSecret).valueOf();
@@ -95,7 +95,7 @@ function generateSignature(method, route, headers, data, apiKey, apiSecret) {
     // with colons in between
     var signature = 'CC0-HMAC-SHA256:' + headerList + ':' + rawSignature;
     // console.log('final signature:', signature);
-    // final signature: CC0-HMAC-SHA256:x-confidentlims-timestamp:1fdc8a407c5d1c31df2334fbc49984062a4071077a9dc7cfff4de934902c01b8
+    // final signature: CC0-HMAC-SHA256:x-confidentcannabis-timestamp:1fdc8a407c5d1c31df2334fbc49984062a4071077a9dc7cfff4de934902c01b8
 
     return signature;
 }

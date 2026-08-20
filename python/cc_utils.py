@@ -33,7 +33,7 @@ def cc_request(
         headers=None, api_key=None, api_secret=None):
     data = data or {}
     headers = headers or {}
-    headers['X-ConfidentLims-Timestamp'] = '{}'.format(time.time())
+    headers['X-ConfidentCannabis-Timestamp'] = '{}'.format(time.time())
 
     signature = generate_signature(
         method,
@@ -44,8 +44,8 @@ def cc_request(
         api_secret
     )
 
-    headers['X-ConfidentLims-APIKey'] = api_key
-    headers['X-ConfidentLims-Signature'] = signature
+    headers['X-ConfidentCannabis-APIKey'] = api_key
+    headers['X-ConfidentCannabis-Signature'] = signature
 
     if method == 'POST':
         request_method = requests.post

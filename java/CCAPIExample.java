@@ -17,17 +17,17 @@ import javax.crypto.spec.SecretKeySpec;
 
 
 public class CCAPIExample {
-	private static final String BASE_URL = "https://sandbox-api.confidentlims.com/";
-	private static final String USER_AGENT = "confidentlims/1.0";
+	private static final String BASE_URL = "https://sandbox-api.confidentcannabis.com/";
+	private static final String USER_AGENT = "confidentcannabis/1.0";
 
 	private static final String API_KEY = "a04fca7b-7f90-4253-b22b-8da3fa4e8f47";
 	private static final String API_SECRET = "fffc2606-73f1-4b87-9be5-3a5a882fef56";
 
 	public static void main(String[] args) throws IOException, InvalidKeyException, NoSuchAlgorithmException {
-		// https://api.confidentlims.com/v0/docs/labs/get-lab
+		// https://sandbox-api.confidentcannabis.com/v0/docs/#lab-GET
 		ccGet("v0/lab");
 
-		// https://api.confidentlims.com/v0/docs/signing-test
+		// https://sandbox-api.confidentcannabis.com/v0/docs/#signingtest-POST
 		HashMap params = new HashMap<String, String>();
 		params.put("example_field", "foo");
 		ccPost("v0/signingtest", params);
@@ -42,12 +42,12 @@ public class CCAPIExample {
 		// build headers and get signature
 		String timestamp = getTimestampString();
 		HashMap<String, String> headers = new HashMap<String, String>();
-		headers.put("X-ConfidentLims-Timestamp", timestamp);
+		headers.put("X-ConfidentCannabis-Timestamp", timestamp);
 
 		String signature = generateSignature(method, route, headers, data, API_KEY, API_SECRET);
 
-		headers.put("X-ConfidentLims-APIKey", API_KEY);
-		headers.put("X-ConfidentLims-Signature", signature);
+		headers.put("X-ConfidentCannabis-APIKey", API_KEY);
+		headers.put("X-ConfidentCannabis-Signature", signature);
 		for (Map.Entry<String, String> entry : headers.entrySet()) {
 			con.setRequestProperty(entry.getKey(), entry.getValue());
 		}
@@ -113,8 +113,8 @@ public class CCAPIExample {
 		String baseString = method.toUpperCase() + "/" + route;
 
 		// 2. create sorted, lowercased list of (key, value) pairs from headers
-		// dictionary (must include X-ConfidentLims-Timestamp but not
-		// X-ConfidentLims-APIKey or X-ConfidentLims-Signature)
+		// dictionary (must include X-ConfidentCannabis-Timestamp but not
+		// X-ConfidentCannabis-APIKey or X-ConfidentCannabis-Signature)
 		TreeMap preparedHeaders = getPreparedHeaders(headers);
 
 		// 3. create url encoded param string '{{key}}={{value]}}&...'
@@ -161,7 +161,7 @@ public class CCAPIExample {
 		System.out.println("rawSignature: " + rawSignature);
 
 		// 11. prefix with signing algorithm and header list string:
-		//     'CC0-HMAC-SHA256:host;x-confidentlims-timestamp:'
+		//     'CC0-HMAC-SHA256:host;x-confidentcannabis-timestamp:'
 		String signature = "CC0-HMAC-SHA256:" + headerListString + ":" + rawSignature;
 		System.out.println("Final Signature: " + signature);
 

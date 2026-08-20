@@ -1,6 +1,6 @@
 # public-api-tools
 
-Tools for working with the Confident LIMS API.
+Tools for working with the Confident Cannabis API.
 
 Each language has a folder of examples and helpful modules within it. Check
 out the readme.md at the top of each language folder for specific information
@@ -24,8 +24,8 @@ Python:
 from .signing import generate_signature
 
 method = 'GET'
-route = '/v0/signingtest/'
-headers = {'X-ConfidentLims-Timestamp': '1474507118.77095'}
+route = '/api/v0/signingtest/'
+headers = {'X-ConfidentCannabis-Timestamp': '1474507118.77095'}
 data = {'foo': 1, 'bar': 2}
 api_key = '88b750a8-d414-4aee-b26c-2cc7e85434dd'
 api_secret = '043bca27-c4d1-4d39-86d6-e5f0c3b4bb4f'
@@ -33,7 +33,7 @@ api_secret = '043bca27-c4d1-4d39-86d6-e5f0c3b4bb4f'
 signature = generate_signature(method, route, headers, data, api_key, api_secret)
 print(signature)
 
->>> 'CC0-HMAC-SHA256:x-confidentlims-timestamp:f4f830ac634dee9a9c98bfe71427d4b7e78ffd0356ee305958bc3687d40ffa43'  # NOQA
+>>> 'CC0-HMAC-SHA256:x-confidentcannabis-timestamp:f4f830ac634dee9a9c98bfe71427d4b7e78ffd0356ee305958bc3687d40ffa43'  # NOQA
 ```
 
 Javascript:
@@ -43,8 +43,8 @@ Javascript:
 var generateSignature = require('.signing').generateSignature;
 
 method = 'GET'
-route = '/v0/signingtest/'
-headers = {'X-ConfidentLims-Timestamp': '1474507118.77095'}
+route = '/api/v0/signingtest/'
+headers = {'X-ConfidentCannabis-Timestamp': '1474507118.77095'}
 data = {'foo': 1, 'bar': 2}
 api_key = '88b750a8-d414-4aee-b26c-2cc7e85434dd'
 api_secret = '043bca27-c4d1-4d39-86d6-e5f0c3b4bb4f'
@@ -52,14 +52,14 @@ api_secret = '043bca27-c4d1-4d39-86d6-e5f0c3b4bb4f'
 var signature = generateSignature(method, route, headers, data, apiKey, apiSecret);
 console.log(signature);
 
-> 'CC0-HMAC-SHA256:x-confidentlims-timestamp:f4f830ac634dee9a9c98bfe71427d4b7e78ffd0356ee305958bc3687d40ffa43'
+> 'CC0-HMAC-SHA256:x-confidentcannabis-timestamp:f4f830ac634dee9a9c98bfe71427d4b7e78ffd0356ee305958bc3687d40ffa43'
 ```
 
 
 ## Special Encoding
 
 Inevitably, each language and encoding library handles percent encoding
-differently. The Confident LIMS API is currently using a combination of
+differently. The Confident Cannabis API is currently using a combination of
 python's stdlib urllib.escape_plus and urllib.urlencode, which results in
 nearly every character being percent encoded except notably space, which
 becomes a + sign.

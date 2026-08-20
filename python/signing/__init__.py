@@ -21,9 +21,9 @@ def generate_signature(
     - route (string): url after the hostname (without any querystring)
         eg: /api/v0/signingtest
     - headers (dict): dictionary of headers being sent in the
-        request must include X-ConfidentLims-Timestamp and
+        request must include X-ConfidentCannabis-Timestamp and
         anything else you wish to sign
-        X-ConfidentLims-Timestamp should be a unix timestamp
+        X-ConfidentCannabis-Timestamp should be a unix timestamp
         (seconds since epoch)
     - data (dict): dictionary of data fields being sent in the request
     - api_key (string): api key used for signing
@@ -34,13 +34,13 @@ def generate_signature(
     1. create base string by combining method and route - eg: GET/api/v0/test
     2. create ascii-sorted (ascending), lowercased list of (key,
         value) pairs from headers dictionary (must include
-        X-ConfidentLims-Timestamp but not
-        X-ConfidentLims-APIKey or
-        X-ConfidentLims-Signature)
+        X-ConfidentCannabis-Timestamp but not
+        X-ConfidentCannabis-APIKey or
+        X-ConfidentCannabis-Signature)
     3. create url encoded string '{{key}}={{value}}&...'
         for ascii-ordered header fields, lowercased
     4. create semi-colon separated list of lowercase
-        header keys eg: x-confidentlims-timestamp;host
+        header keys eg: x-confidentcannabis-timestamp;host
     5. create ascii-sorted list of (key, value) pairs from data
     6. add ('api_key', {{api_key}}) to the END of the list
     7. create url encoded param string '{{key}}={{value}}&...'
@@ -51,7 +51,7 @@ def generate_signature(
         encoded parameter string with & between them
     10. create sha256 hmac signature from string using api_secret
     11. prefix with signing algorithm and header list string:
-        'CC0-HMAC-SHA256:host;x-confidentlims-timestamp:'
+        'CC0-HMAC-SHA256:host;x-confidentcannabis-timestamp:'
 
     URI Encoding:
     - rfc: http://tools.ietf.org/html/rfc3986#section-2.1
@@ -59,7 +59,7 @@ def generate_signature(
 
     NOTE! The encoding used by each language (and often from library to
     library and even function to function) always ends up having
-    different quirks. The Confident LIMS API uses url escaping
+    different quirks. The Confident Cannabis API uses url escaping
     for every printable ascii character except -, _, and . are left
     alone and spaces are encoded as + signs (NOT %20).
 
@@ -70,7 +70,7 @@ def generate_signature(
     ```
     method = 'GET'
     route = '/api/v0/signingtest/'
-    headers = {'X-ConfidentLims-Timestamp': '1474507118.77095'}
+    headers = {'X-ConfidentCannabis-Timestamp': '1474507118.77095'}
     data = {'foo': 1, 'bar': 2}
     api_key = '88b750a8-d414-4aee-b26c-2cc7e85434dd'
     api_secret = '043bca27-c4d1-4d39-86d6-e5f0c3b4bb4f'
@@ -79,18 +79,18 @@ def generate_signature(
         method, route, headers, data, api_key, api_secret)
     print(signature)
 
-    >>> CC0-HMAC-SHA256:x-confidentlims-timestamp:1fdc8a407c5d1c31df2334fbc49984062a4071077a9dc7cfff4de934902c01b8  # NOQA
+    >>> CC0-HMAC-SHA256:x-confidentcannabis-timestamp:1fdc8a407c5d1c31df2334fbc49984062a4071077a9dc7cfff4de934902c01b8  # NOQA
     ```
     """
 
     logging.debug(
-        'Creating Confident LIMS V0 HMAC-SHA256 request signature')
+        'Creating Confident Cannabis V0 HMAC-SHA256 request signature')
     # 1. create base string by combining method and route
     base_string = '{}{}'.format(method.upper(), route)
 
     # 2. create sorted, lowercased list of (key, value) pairs from headers
-    # dictionary (must include X-ConfidentLims-Timestamp but not
-    # X-ConfidentLims-APIKey or X-ConfidentLims-Signature)
+    # dictionary (must include X-ConfidentCannabis-Timestamp but not
+    # X-ConfidentCannabis-APIKey or X-ConfidentCannabis-Signature)
     sorted_headers = sorted([
         (key.lower(), value)
         for key, value in headers.items()
@@ -140,7 +140,7 @@ def generate_signature(
     ).hexdigest()
 
     # 11. prefix with signing algorithm and header list string:
-    #     'CC0-HMAC-SHA256:host;x-confidentlims-timestamp:'
+    #     'CC0-HMAC-SHA256:host;x-confidentcannabis-timestamp:'
     signature = 'CC0-HMAC-SHA256:{}:{}'.format(header_list, raw_signature)
     logging.debug('Final Signature: {}'.format(signature))
 
